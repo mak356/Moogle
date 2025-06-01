@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moogle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .logo {
+      font-size: 64px;
+      color: #4285f4;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    input[type="text"] {
+      width: 50%;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 24px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      background-color: #f2f2f2;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e2e2e2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">Moogle</div>
+
+  <form id="searchForm">
+    <input type="text" id="searchQuery" placeholder="Search Moogle..." required>
+    <div class="buttons">
+      <button type="submit">Moogle Search</button>
+      <button type="button" onclick="window.location.href='https://www.google.com/doodles'">I’m Feeling Lucky</button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const query = document.getElementById("searchQuery").value;
+      const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+      window.location.href = googleUrl;  // Opens in same tab
+      // To open in new tab: window.open(googleUrl, '_blank');
+    });
+  </script>
+
+</body>
+</html>
